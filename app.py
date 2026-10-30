@@ -2,6 +2,8 @@
 
 Run:  streamlit run app.py
 """
+import hmac
+import os
 import sys
 from pathlib import Path
 
@@ -21,6 +23,26 @@ from fairshare.summary import breakdown_rows, history_text, whatsapp_message  # 
 
 SAMPLE = Path(__file__).resolve().parent / "samples" / "sample_receipt.jpg"
 st.set_page_config(page_title="FairShare", page_icon="🧾", layout="wide")
+
+
+def password_ok() -> bool:
+    """Optional access password (APP_PASSWORD), so a public link can't use up your Gemini quota."""
+    expected = os.getenv("APP_PASSWORD")
+    if not expected or st.session_state.get("authenticated"):
+        return True
+    st.title("🧾 FairShare")
+    st.caption("Split a restaurant bill fairly by chatting, in English, عربي or Franco.")
+    entered = st.text_input("Password", type="password", placeholder="Enter the demo password")
+    if entered:
+        if hmac.compare_digest(entered.encode(), expected.encode()):  # constant-time comparison
+            st.session_state.authenticated = True
+            st.rerun()
+        st.error("Wrong password.")
+    return False
+
+
+if not password_ok():
+    st.stop()
 
 
 def safe_md(text: str) -> str:

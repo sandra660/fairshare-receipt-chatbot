@@ -112,6 +112,18 @@ streamlit run app.py
 ```
 Click **Use the sample receipt** to try it without a real receipt.
 
+### Deploy online (Streamlit Community Cloud, free)
+1. Use a MongoDB **Atlas** cluster (the cloud can't reach a database on your laptop) and allow access from anywhere (`0.0.0.0/0`) under *Network Access*.
+2. On [share.streamlit.io](https://share.streamlit.io), sign in with GitHub, click **Create app**, choose this repository, branch `main`, file `app.py`, and Python 3.12 under *Advanced settings*.
+3. Paste the secrets (they are never stored in the repository):
+   ```toml
+   GOOGLE_API_KEY = "your-gemini-key"
+   MONGODB_URI = "mongodb+srv://user:password@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority"
+   MONGODB_DB = "fairshare"
+   APP_PASSWORD = "choose-a-demo-password"
+   ```
+   `APP_PASSWORD` shows a password screen first, so a public link can't use up your Gemini quota.
+
 ### Run the tests
 ```bash
 pytest -q
