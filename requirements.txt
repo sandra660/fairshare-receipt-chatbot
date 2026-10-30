@@ -1,0 +1,11 @@
+langchain-core>=1.7
+langchain-google-genai>=4.4
+pymongo>=4.10
+pydantic>=2.7
+streamlit>=1.66
+pandas>=2.2
+pillow>=10.0
+python-dotenv>=1.0
+# tests
+pytest>=8.0
+mongomock>=4.3

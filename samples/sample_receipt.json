@@ -1,0 +1,58 @@
+{
+  "restaurant": "Lotus & Lime Cafe",
+  "date": "2026-10-29",
+  "currency": "EGP",
+  "items": [
+    {
+      "name": "Classic Beef Burger",
+      "quantity": 1,
+      "total_price": 245.0
+    },
+    {
+      "name": "Margherita Pizza",
+      "quantity": 1,
+      "total_price": 210.0
+    },
+    {
+      "name": "Chicken Fettuccine",
+      "quantity": 1,
+      "total_price": 230.0
+    },
+    {
+      "name": "Caesar Salad",
+      "quantity": 1,
+      "total_price": 145.0
+    },
+    {
+      "name": "Coca-Cola",
+      "quantity": 3,
+      "total_price": 105.0
+    },
+    {
+      "name": "Fresh Mango Juice",
+      "quantity": 1,
+      "total_price": 75.0
+    },
+    {
+      "name": "Molten Cake",
+      "quantity": 1,
+      "total_price": 120.0
+    }
+  ],
+  "charges": [
+    {
+      "name": "Service 12%",
+      "kind": "service",
+      "amount": 135.6,
+      "split": "proportional"
+    },
+    {
+      "name": "VAT 14%",
+      "kind": "tax",
+      "amount": 177.18,
+      "split": "proportional"
+    }
+  ],
+  "subtotal": 1130.0,
+  "total": 1442.78
+}
